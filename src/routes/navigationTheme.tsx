@@ -47,6 +47,7 @@ export const defaultOptions: StackNavigationOptions = {
   },
   headerTitleContainerStyle: { justifyContent: 'center', flexDirection: 'row' },
   headerTitle: '',
+  headerShown: false,
 };
 
 export function loginPageNavOptions(

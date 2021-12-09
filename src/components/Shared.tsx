@@ -9,8 +9,7 @@ import React, {
   ReactElement,
   useContext,
 } from 'react';
-import { TextInput } from 'react-native';
-import { Divider, Icon, Button, SearchBar } from 'react-native-elements';
+import { Divider, Icon, Button, Slider } from 'react-native-elements';
 import NetInfo from '@react-native-community/netinfo';
 import * as C from 'src/constants';
 import { scale } from 'react-native-size-matters';
@@ -20,11 +19,8 @@ import { useTranslation } from 'react-i18next';
 import { ActivityIndicator } from 'react-native';
 import { PacmanIndicator, SkypeIndicator } from 'react-native-indicators';
 import { ThemeContext } from 'styled-components';
-import { SearchBarBaseProps } from 'react-native-elements/dist/searchbar/SearchBar';
-import { isAndroid, isIos } from 'src/utils/functions';
+import { isAndroid } from 'src/utils/functions';
 const { DynamicText, DynamicView, OfflineView } = require('src/styles');
-
-const SafeSearchBar = SearchBar as unknown as React.FC<SearchBarBaseProps>;
 
 export const SectionTitle: FC<{ title: string; tag: number }> = ({
   title,
@@ -90,6 +86,7 @@ export function GradientButton(props: any) {
     onPress,
     icon = (
       <Icon
+        tvParallaxProperties={undefined}
         name="hearto"
         type="antdesign"
         size={scale(22)}
@@ -436,6 +433,7 @@ export function CardWithIcon({
       eL={10}
     >
       <Icon
+        tvParallaxProperties={undefined}
         type="feather"
         name={icon_name}
         color={icon_color}
@@ -458,58 +456,56 @@ export function CardWithIcon({
 }
 
 //############################################################
-// NOTE: COMMON SEARCH BAR
+// NOTE: HEADER COMPONENT
 //############################################################
-interface SearchBarProps {
-  search: string;
-  searchHelper: (text: string) => void;
-  ref?: typeof TextInput;
-  keyboardType?: string;
+interface HeaderProps {
+  currentValue: number;
+  maxValue: number;
+  minValue: number;
 }
-export const CommonSearchBar = React.forwardRef<
-  typeof TextInput,
-  SearchBarProps
->((props, ref) => {
+export function Header({ currentValue, maxValue, minValue }: HeaderProps) {
   //############################################################
   //NOTE: DEFINE VARIABLE
   //############################################################
   const themeContext = useContext(ThemeContext);
-  const { t } = useTranslation();
-  const { search, searchHelper, keyboardType = 'default' } = props;
+
   //############################################################
   //NOTE: LIFE CYCLE METHOD VARIABLE
   //############################################################
   return (
-    <SafeSearchBar
-      ref={ref}
-      autoCorrect={false}
-      placeholder={t('TYPE_HERE')}
-      placeholderTextColor={themeContext.placeHolderColor}
-      cancelButtonProps={{ color: themeContext.searchTextColor }}
-      inputStyle={{
-        color: themeContext.searchTextColor,
-        fontSize: scale(14),
-        fontFamily: C.font,
-        fontWeight: '400',
-      }}
-      containerStyle={{
-        backgroundColor: themeContext.primaryBackgroundColor,
-        marginHorizontal: isIos() ? scale(5) : scale(10),
-      }}
-      inputContainerStyle={{
-        backgroundColor: themeContext.searchBackgroundColor,
-        borderRadius: scale(10),
-      }}
-      searchIcon={{
-        color: themeContext.iconColor,
-        type: 'feather',
-        name: 'search',
-        size: scale(25),
-      }}
-      onChangeText={(text: string) => searchHelper(text)}
-      value={search}
-      platform={isIos() ? 'ios' : 'android'}
-      keyboardType={keyboardType}
-    />
+    <DynamicView dynamic mH={20}>
+      <DynamicView dynamicFlex flx={0.1}>
+        <Icon
+          tvParallaxProperties={undefined}
+          type="font-awesome"
+          name="close"
+          color={themeContext.iconColor}
+          size={scale(20)}
+        />
+      </DynamicView>
+      <DynamicView dynamicFlex flx={0.9}>
+        <Slider
+          step={10}
+          disabled={true}
+          value={currentValue}
+          maximumValue={maxValue}
+          minimumValue={minValue}
+          thumbTintColor="transparent"
+          maximumTrackTintColor={themeContext.maxTintColor}
+          minimumTrackTintColor={themeContext.minTintColor}
+          trackStyle={{ backgroundColor: themeContext.primaryColor }}
+          style={{ marginHorizontal: scale(15) }}
+        />
+      </DynamicView>
+      <DynamicView dynamicFlex flx={0.1}>
+        <Icon
+          tvParallaxProperties={undefined}
+          type="entypo"
+          name="dots-three-horizontal"
+          color={themeContext.iconColor}
+          size={scale(20)}
+        />
+      </DynamicView>
+    </DynamicView>
   );
-});
+}

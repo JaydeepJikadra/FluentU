@@ -1,41 +1,4 @@
 //############################################################
-//NOTE: MODAL INTERFACE
-//############################################################
-export interface User {
-  id?: number;
-  lid?: number;
-  first_name?: string;
-  last_name?: string;
-  nick_name?: string;
-  dob?: string;
-  gender?: string;
-  phone?: string;
-  email?: string;
-  add_1?: string;
-  add_2?: string;
-  city?: string;
-  state?: string;
-  zip?: string;
-  country?: string;
-  health_coach?: int;
-  physician?: int;
-  status?: string;
-  picture?: string;
-  use_nick_name?: string;
-  api_token?: string;
-  fcm_id?: string;
-  created_at?: string;
-  updated_at?: string;
-  address_type?: string;
-  routing_no?: number;
-  account_no?: number;
-  payout_frequency?: string;
-  email_me?: string;
-  dashboard_status?: string;
-  credit?: string;
-}
-
-//############################################################
 //NOTE: STYLED INTERFACE
 //############################################################
 interface CommonProps {
@@ -96,6 +59,7 @@ export interface ButtonProps extends CommonProps {
   readonly opacity: number;
 }
 export interface ImageProps extends CommonProps {
+  readonly dynamicPosition: boolean;
   readonly dynamicAlign: boolean;
   readonly trans: string;
   readonly iRM: string;
@@ -116,9 +80,11 @@ export interface TextProps extends CommonProps {
   readonly aS: string; // align-self
   readonly opacity: number;
   readonly lS: number; // letter-spacing
+  readonly lH: number; // letter-spacing
 }
 export interface ViewProps extends CommonProps {
   readonly dynamicMargin: boolean;
+  readonly dynamicPosition: boolean;
   readonly noMargin: boolean;
   readonly flexible: boolean;
   readonly centerAlign: boolean;
@@ -150,4 +116,58 @@ export interface CommonButtonViewProps extends CommonProps, ViewProps {
   status: number;
   buttonType: string;
   tF?: Array<object>; //transform
+}
+
+//############################################################
+//NOTE: VIDEO QUESTIONS DATA
+//############################################################
+export interface QuestionsData {
+  id: number;
+  question_english: string;
+  question_spanish: string;
+  answer: string;
+  answer_spanish: string;
+  pauseDuration: number;
+  correct: boolean;
+  viewed: boolean;
+}
+//############################################################
+//NOTE: VIDEO STATE DATA
+//############################################################
+interface VideoState {
+  fullscreen: boolean;
+  play: boolean;
+  currentTime: number;
+  duration: number;
+  showControls: boolean;
+}
+
+//############################################################
+//NOTE: VIDEO ON PROGRESS DATA
+//############################################################
+interface VideoOnProgress {
+  currentTime: number;
+  playableDuration: number;
+  seekableDuration: number;
+}
+
+//############################################################
+//NOTE: VIDEO ON LOAD DATA
+//############################################################
+interface VideoOnLoad {
+  duration: number;
+  currentTime: number;
+}
+
+//############################################################
+//NOTE: RECORDER STATE DATA
+//############################################################
+interface RecorderState {
+  recognized: string;
+  pitch: string;
+  error: string;
+  end: string;
+  started: string;
+  results: Array;
+  partialResults: Array;
 }

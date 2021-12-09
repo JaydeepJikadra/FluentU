@@ -59,7 +59,7 @@ export const FooterView = styled.View<ViewProps>`
 `;
 
 export const OfflineView = styled.View<ViewProps>`
-  background: ${props => props.theme.secondaryTextErrorColor};
+  background-color: ${props => props.theme.primaryTextErrorColor};
   height: ${scale(30)}px;
   justify-content: center;
   align-items: center;
@@ -90,6 +90,16 @@ export const DynamicView = styled.View<ViewProps>`
       border-top-right-radius: ${scale(props.bTRR ? props.bTRR : 0)}px;
       border-radius: ${scale(props.bR ? props.bR : 0)}px;
       background-color: ${props.bGC ? props.bGC : 'transparent'};
+      z-index: 50;
+    `}
+  ${props =>
+    props.dynamicPosition &&
+    css`
+      position: ${props.pOS ? props.pOS : 'relative'};
+      top: ${scale(props.top ? props.top : 0)}px;
+      bottom: ${scale(props.bot ? props.bot : 0)}px;
+      right: ${scale(props.rht ? props.rht : 0)}px;
+      left: ${scale(props.lef ? props.lef : 0)}px;
     `}
   ${props =>
     props.dynamicMargin &&
@@ -109,17 +119,16 @@ export const DynamicView = styled.View<ViewProps>`
     props.dynamicHeight &&
     css`
       height: ${Math.floor(props.height ? props.height : 0)}%;
-      background-color: ${props.bGC ? props.bGC : 'transparent'};
     `}  
       ${props =>
     props.fixHeight &&
     css`
-      height: ${Math.floor(props.height ? props.height : 0)}px;
+      height: ${props.height ? props.height : 0}px;
     `}
     ${props =>
     props.fixWidth &&
     css`
-      width: ${Math.floor(props.width ? props.width : 0)}px;
+      width: ${props.width ? props.width : 0}px;
     `}
     ${props =>
     props.dynamicAlign &&

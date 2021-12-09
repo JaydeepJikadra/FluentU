@@ -421,6 +421,7 @@ export const DynamicText = styled.Text<TextProps>`
       text-align: ${props.tA ? props.tA : 'center'};
       text-decoration-line: ${props.tDL ? props.tDL : 'none'};
       margin-end: ${scale(props.mE ? props.mE : 0)}px;
+      line-height: ${scale(props.lH ? props.lH : 0)}px;
       padding-horizontal: ${scale(props.pH ? props.pH : 0)}px;
       color: ${props.color ? props.color : props.theme.secondaryColor};
       margin-vertical: ${verticalScale(props.mV ? props.mV : 0)}px;
@@ -436,8 +437,9 @@ export const DynamicText = styled.Text<TextProps>`
       bottom: ${scale(props.bot ? props.bot : 0)};
       left: ${scale(props.lef ? props.lef : 0)};
       right: ${scale(props.rht ? props.rht : 0)};
+      opacity: ${scale(props.opacity ? props.opacity : 1)};
       position: ${props.pOS ? props.pOS : 'relative'};
-      z-index: 1000;
+      z-index: 20;
     `}
   ${props =>
     props.dynamicAlign &&

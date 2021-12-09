@@ -25,6 +25,10 @@ declare module 'styled-components' {
     primaryBackgroundColor: string;
 
     primaryTextColor: string;
+    successTextColor: string;
+    successBackgroundColor: string;
+    minTintColor: string;
+    maxTintColor: string;
 
     searchBackgroundColor: string;
     iconColor: string;
@@ -51,6 +55,8 @@ declare module 'styled-components' {
     shadowColor3: string;
     shadowColor4: string;
 
+    highLightColor: string;
+
     primaryPlaceHolderColor: string;
     borderColor1: string;
     borderColor2: string;
@@ -75,7 +81,7 @@ declare module 'styled-components' {
 }
 
 export const lightTheme: DefaultTheme = {
-  dark: false,
+  dark: true,
   primaryColor: '#9575CD',
   primaryColor100Alpha: '#D1C4E9',
   primaryColor200Alpha: '#B39DDB',
@@ -92,11 +98,18 @@ export const lightTheme: DefaultTheme = {
   secondaryColor800Alpha: '#424242',
   secondaryColor900Alpha: '#212121',
 
+  minTintColor: '#3EC331',
+  maxTintColor: '#C9CDD0',
+  successTextColor: '#05AA1F',
+  successBackgroundColor: 'rgba(5, 170, 31, 0.19)',
+
   primaryBackgroundColor: '#EEEEEE',
   primaryTextErrorColor: '#EB5B76',
   primaryShadowColor: '#EEEEEE',
 
   primaryTextColor: '#FFFFFF',
+
+  highLightColor: '#2E35D6',
 
   searchBackgroundColor: '#E0E0E0', // *
   iconColor: '#424242', // *
@@ -121,8 +134,8 @@ export const lightTheme: DefaultTheme = {
   shadowColor4: '#000000',
   borderColor1: '#ECECEC',
   borderColor2: '#A7B1B8',
-  gradientColor1: '#663896',
-  gradientColor2: '#663896',
+  gradientColor1: '#0046E3',
+  gradientColor2: '#0046E3',
   gradientColor3: '#663896',
   gradientColor4: '#663896',
   textColor1: '#010A3F',
@@ -141,7 +154,7 @@ export const lightTheme: DefaultTheme = {
 };
 
 export const darkTheme: DefaultTheme = {
-  dark: true,
+  dark: false,
   primaryColor: '#9575CD',
   primaryColor100Alpha: '#D1C4E9',
   primaryColor200Alpha: '#B39DDB',
@@ -163,6 +176,13 @@ export const darkTheme: DefaultTheme = {
   primaryTextErrorColor: '#EB5B76', // *
 
   primaryTextColor: '#FFFFFF', // *
+
+  minTintColor: '#3EC331',
+  maxTintColor: '#C9CDD0',
+  successTextColor: '#05AA1F',
+  successBackgroundColor: 'rgba(5, 170, 31, 0.19)',
+
+  highLightColor: '#2E35D6',
 
   searchBackgroundColor: '#424242', // *
   iconColor: '#F5F5F5', //*

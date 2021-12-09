@@ -14,6 +14,15 @@ const resources = {
       BUTTON_NEUTRAL: 'Ask Me Later',
       BUTTON_NEGATIVE: 'Cancel',
       BUTTON_POSITIVE: 'OK',
+      PERMISSION_TITLE: '',
+      PERMISSION_MESSAGE:
+        'FluentU App needs access to recorder so you can reply answer',
+      PERMISSION_GRANTED: '',
+      VALID_PERMISSION: 'Application require permission access to recorder😔',
+      SPEAK_NOW: 'Speak now...',
+      WELL_DONE: 'WELL DONE!',
+      A_PLUS: 'A+',
+      CONTINUE: 'CONTINUE',
     },
   },
 };

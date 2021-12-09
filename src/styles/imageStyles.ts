@@ -47,5 +47,15 @@ export const DynamicBackgroundImage = styled.ImageBackground<ImageProps>`
       margin-vertical: ${props.mV ? props.mV : 0}px;
       margin-top: ${scale(props.mT ? props.mT : 0)}px;
       margin-start: ${scale(props.mS ? props.mS : 0)}px;
-    `},
+      z-index: 10;
+    `}
+  ${props =>
+    props.dynamicPosition &&
+    css`
+      position: ${props.pOS ? props.pOS : 'relative'};
+      top: ${props.top ? props.top : 0}px;
+      bottom: ${props.bot ? props.bot : 0}px;
+      right: ${props.rht ? props.rht : 0}px;
+      left: ${props.lef ? props.lef : 0}px;
+    `}
 `;

@@ -477,34 +477,6 @@ export function formatPhoneText(value: string) {
   return value;
 }
 
-export function checkJapaneseText(text: string, t: Function): boolean {
-  const ranges = [
-    '\ud83c[\udf00-\udfff]', // U+1F300 to U+1F3FF
-    '\ud83d[\udc00-\ude4f]', // U+1F400 to U+1F64F
-    '\ud83d[\ude80-\udeff]', // U+1F680 to U+1F6FF
-    '\u00a9',
-    '[\u2000-\u3300]',
-    '\ud83c[\ud000-\udfff]',
-    '\ud83d[\ud000-\udfff]',
-    '\ud83e[\ud000-\udfff]',
-  ];
-  const patt = new RegExp(ranges.join('|'));
-  if (
-    wanakana.isJapanese(text) ||
-    C.REGEX_JAPANESE.test(text) ||
-    patt.test(text)
-  ) {
-    showToast({
-      message: t('PEASE_USE_ENGLISH_ONLY'),
-      position: 'Center',
-      duration: Toast.durations.SHORT,
-    });
-    return true;
-  } else {
-    return false;
-  }
-}
-
 export function arrayObjectsToString(
   arrayData: Array<{ [key: string]: any }>,
   keyName: string,
@@ -598,4 +570,8 @@ export async function askPermission(
       return false;
     }
   });
+}
+
+export function replaceSpecialChar(input: string) {
+  return input.replace(/[&\/\\#,+!()$~%.'":*?¿<>{}]/g, '');
 }

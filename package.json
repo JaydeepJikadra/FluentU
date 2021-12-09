@@ -5,6 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator \"iPhone 12 Pro Max\"",
+    "ipod": "react-native run-ios --simulator \"iPod touch (7th generation)\"",
     "start": "react-native start",
     "reset": "react-native start --reset-cache",
     "test": "jest",
@@ -25,6 +26,7 @@
     "@react-native-community/netinfo": "^6.0.0",
     "@react-native-community/picker": "^1.8.1",
     "@react-native-community/slider": "^4.1.12",
+    "@react-native-voice/voice": "^3.2.2",
     "@react-navigation/bottom-tabs": "^5.9.0",
     "@react-navigation/drawer": "^5.12.5",
     "@react-navigation/native": "^5.9.4",
@@ -41,6 +43,7 @@
     "react-native-dotenv": "^2.5.5",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "^1.8.0",
+    "react-native-highlight-words": "^1.0.1",
     "react-native-indicators": "^0.17.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.4",
     "react-native-linear-gradient": "^2.5.6",

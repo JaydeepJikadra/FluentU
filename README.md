@@ -1,4 +1,37 @@
-[![React Native]
+# FluentU
+
+## Installation
+
+Download or clone this project. Open the project in Terminal. Run below command to install dependency. Make sure you are in your project's root folder
+
+```
+ yarn install
+```
+
+Start the app.
+
+```
+yarn start
+```
+
+Run On iOS
+
+```
+yarn ios
+```
+
+Run On Android
+
+```
+yarn android-dev
+```
+
+Linting
+
+```
+yarn lint
+yarn lint:fix
+```
 
 ## Project Structure
 
@@ -75,4 +108,6 @@ import HomePage from 'src/containers/HomePage'
 
 - [jetifier] transition tool for React Native 0.60 AndroidX migration
 
-## Run linting pre-commit and unit testing pre-push with husky's hooks
+## Run linting pre-commit and pre-push with husky's hooks
+
+Happy Coding ..🎃 🥳
